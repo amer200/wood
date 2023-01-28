@@ -40,8 +40,8 @@ app.post('/admin/add-serv', upload.single('img'));
 app.post('/admin/add-project', upload.single('img'));
 /********************************************************************************* */
 const adminRoutes = require('./routes/admin');
-// const mainRoutes = require('./routes/main');
-// app.use('/', mainRoutes);
+const mainRoutes = require('./routes/main');
+app.use('/', mainRoutes);
 app.use('/admin', adminRoutes);
 /********************************************************************************* */
 mongoose.connect(dbUrl)

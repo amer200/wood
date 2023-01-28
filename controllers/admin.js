@@ -108,14 +108,14 @@ exports.addServ = (req, res) => {
         ar: req.body.titlear,
         en: req.body.titleen
     };
-    const contetn = {
+    const content = {
         ar: req.body.ar,
         en: req.body.en
     }
     const serv = new Serv({
         img: img,
         title: title,
-        contetn: contetn
+        content: content
     })
     serv.save()
         .then(s => {
