@@ -1,0 +1,26 @@
+<div class="col-6 d-none all-forms" id="about">
+    <form action="/admin/about" method="post" enctype="multipart/form-data">
+        <h4>about wood</h4>
+        <div class="mb-3">
+            <label for="txt">content</label>
+            <textarea name="en" class="form-control" cols="30" rows="6"><% if(about){%><%=about.en%><%}%></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="txt">المحتوى</label>
+            <textarea name="ar" class="form-control" cols="30" rows="6"><% if(about){%><%=about.ar%><%}%></textarea>
+        </div>
+        <div class="mb-3" style="width: 50%;">
+            <label for="">عدد العملاء</label>
+            <input type="number" class="form-control" name="clints" value="<%if(about){%><%=about.clints%><%}%>">
+        </div>
+        <div class="mb-3" style="width: 50%;">
+            <label for="">عدد المشاريع</label>
+            <input type="number" class="form-control" name="projects" value="<%if(about){%><%=about.projects%><%}%>">
+        </div>
+        <div class="mb-3">
+            <label for="txt">الصورة</label>
+            <input type="file" name="img" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-dark">submit</button>
+    </form>
+</div>
