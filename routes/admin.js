@@ -16,4 +16,7 @@ route.post('/add-project-categ', adminController.addProjectCateg);
 route.get('/remove-project-categ/:id', adminController.removeProjectCateg);
 route.post('/add-project', adminController.addProject)
 route.get('/remove-project/:id', adminController.removeProject)
+/*****************************parten ************************************/
+route.post('/add-parten', adminController.addParten);
+route.get('/remove-parten/:id', adminController.removeParten);
 module.exports = route

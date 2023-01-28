@@ -3,6 +3,7 @@ const About = require('../models/about');
 const Serv = require('../models/serv');
 const Project = require('../models/project');
 const Projectcateg = require('../models/projectcateg');
+const Parten = require('../models/parten');
 const fs = require('fs');
 exports.getMain = async (req, res) => {
     const slides = await Slider.find();
@@ -10,12 +11,14 @@ exports.getMain = async (req, res) => {
     const servs = await Serv.find();
     const projects = await Project.find();
     const projectcateg = await Projectcateg.find();
+    const parten = await Parten.find();
     res.render('admin/index', {
         slides: slides,
         about: about,
         servs: servs,
         projects: projects,
         categs: projectcateg,
+        parten: parten
     });
 }
 /* slider  start*/
@@ -210,3 +213,43 @@ exports.removeProject = (req, res) => {
 }
 
 /* project end */
+/* parten start */
+exports.addParten = (req, res) => {
+    const name = {
+        ar: req.body.nameAr,
+        en: req.body.nameEn
+    };
+    const caption = {
+        ar: req.body.captionAr,
+        en: req.body.captionEn
+    }
+    const img = req.file.path.split('public')[1];
+    const parten = new Parten({
+        name: name,
+        caption: caption,
+        img: img
+    });
+    parten.save()
+        .then(p => {
+            res.redirect('/admin')
+        })
+        .catch(err => {
+            console.log(err)
+        })
+}
+exports.removeParten = (req, res) => {
+    const id = req.params.id;
+    Parten.findByIdAndRemove(id)
+        .then(p => {
+            fs.unlink(`public${p.img}`, (err) => {
+                console.log(err)
+            })
+            res.send({
+                msg: 'ok'
+            })
+        })
+        .catch(err => {
+            console.log(err)
+        })
+}
+/* parten end */
