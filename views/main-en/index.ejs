@@ -49,7 +49,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto p-4 p-lg-0">
-                    <a href="/" class="nav-item nav-link active">Home</a>
+                    <a href="/" class="nav-item nav-link">Home</a>
                     <a href="/about" class="nav-item nav-link">About</a>
                     <a href="/service" class="nav-item nav-link">Service</a>
                     <a href="/project" class="nav-item nav-link">Project</a>
@@ -102,7 +102,7 @@
                                 <h1 class="display-5 mb-4">About Us</h1>
                             </div>
                             <p class="mb-4 pb-2">
-                                <%= about.en%>
+                                <%= about.en.slice(0,200)%>...
                             </p>
                             <div class="row g-4 mb-4 pb-2">
                                 <div class="col-sm-6 wow fadeIn" data-wow-delay="0.1s">
@@ -134,7 +134,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="/main/wood-profile.pdf" class="btn btn-primary py-3 px-5">Explore More</a>
+                            <a href="/main/wood-profile.pdf" class="btn btn-primary py-3 px-5">Download Company
+                                Profile</a>
+                            <a href="/about" class="btn btn-primary py-3 px-5">More</a>
                         </div>
                     </div>
                 </div>
