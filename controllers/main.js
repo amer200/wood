@@ -34,25 +34,37 @@ exports.getMain = async (req, res) => {
     const projects = await Project.find().populate('categ');
     const projectcateg = await Projectcateg.find();
     const parten = await Parten.find();
-    res.render('main/index', {
+    let lang = 'ar'
+    if (req.session.lang) {
+        lang = req.session.lang;
+    }
+    res.render(`main-${lang}/index`, {
         slides: slides,
         about: about,
         servs: servs,
         projects: projects,
         categs: projectcateg,
-        partens: parten
+        partens: parten,
     });
 }
 exports.getAbout = async (req, res) => {
     const about = await About.findOne();
-    res.render('main/about', {
+    let lang = 'ar'
+    if (req.session.lang) {
+        lang = req.session.lang;
+    }
+    res.render(`main-${lang}/about`, {
         about: about
     })
 }
 exports.getServ = async (req, res) => {
     const servs = await Serv.find();
     const parten = await Parten.find();
-    res.render('main/service', {
+    let lang = 'ar'
+    if (req.session.lang) {
+        lang = req.session.lang;
+    }
+    res.render(`main-${lang}/service`, {
         servs: servs,
         partens: parten
     })
@@ -60,13 +72,21 @@ exports.getServ = async (req, res) => {
 exports.getProjects = async (req, res) => {
     const projects = await Project.find().populate('categ');
     const projectcateg = await Projectcateg.find();
-    res.render('main/project', {
+    let lang = 'ar'
+    if (req.session.lang) {
+        lang = req.session.lang;
+    }
+    res.render(`main-${lang}/project`, {
         projects: projects,
         categs: projectcateg
     })
 }
 exports.getContact = (req, res) => {
-    res.render('main/contact')
+    let lang = 'ar'
+    if (req.session.lang) {
+        lang = req.session.lang;
+    }
+    res.render(`main-${lang}/contact`)
 }
 exports.sendMail = (req, res) => {
     const name = req.body.name;
@@ -88,3 +108,9 @@ exports.sendMail = (req, res) => {
         }
     });
 };
+/* lang */
+exports.changeLang = (req, res) => {
+    const l = req.params.l;
+    req.session.lang = l;
+    res.redirect('/')
+}

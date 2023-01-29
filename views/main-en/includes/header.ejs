@@ -1,0 +1,69 @@
+<!-- Topbar Start -->
+<div class="container-fluid bg-light p-0">
+    <div class="row gx-0 d-none d-lg-flex">
+        <div class="col-lg-7 px-5 text-start">
+            <div class="h-100 d-inline-flex align-items-center py-3 me-4">
+                <small class="fa fa-map-marker-alt text-primary me-2"></small>
+                <small>Makkah Industrial City, Mecca 24227, Saudi Arabia</small>
+            </div>
+        </div>
+        <div class="col-lg-5 px-5 text-end">
+            <div class="h-100 d-inline-flex align-items-center py-3 me-4">
+                <small class="fa fa-phone-alt text-primary me-2"></small>
+                <small>055 500 8628</small>
+            </div>
+            <div class="h-100 d-inline-flex align-items-center py-3 me-4">
+                <small class="fa fa-phone-alt text-primary me-2"></small>
+                <small>055 833 9966</small>
+            </div>
+            <div class="h-100 d-inline-flex align-items-center">
+                <a class="btn btn-sm-square bg-white text-primary me-1" href=""><i class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-sm-square bg-white text-primary me-1" href=""><i class="fab fa-twitter"></i></a>
+                <a class="btn btn-sm-square bg-white text-primary me-1" href=""><i class="fab fa-linkedin-in"></i></a>
+                <a class="btn btn-sm-square bg-white text-primary me-0" href=""><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Topbar End -->
+
+
+<!-- Navbar Start -->
+<nav class="navbar navbar-expand-lg navbar-light sticky-top p-0">
+    <a href="/" class="navbar-brand logo-large d-flex align-items-center px-4 px-lg-5">
+        <h2 class="m-0 text-primary"><img src="/main/img/logo.png" alt="wood"></h2>
+    </a>
+    <a href="/" class="navbar-brand logo-small">
+        <img src="/main/img/logo.png" alt="wood">
+    </a>
+    <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav ms-auto p-4 p-lg-0">
+            <a href="/" class="nav-item nav-link active">Home</a>
+            <a href="/about" class="nav-item nav-link">About</a>
+            <a href="/service" class="nav-item nav-link">Service</a>
+            <a href="/project" class="nav-item nav-link">Project</a>
+            <a href="/contact" class="nav-item nav-link">Contact</a>
+        </div>
+    </div>
+</nav>
+<!-- Navbar End -->
+<!-- Page Header Start -->
+<div class="container-fluid page-header py-5 mb-5">
+    <div class="container py-5">
+        <h1 class="display-3 text-white mb-3 animated slideInDown">
+            <%=page%>
+        </h1>
+        <nav aria-label="breadcrumb animated slideInDown">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a class="text-white" href="/">Home</a></li>
+                <li class="breadcrumb-item text-white active" aria-current="page">
+                    <%=page%>
+                </li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<!-- Page Header End -->

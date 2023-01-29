@@ -8,7 +8,9 @@
                     <div class="h-100 d-inline-flex align-items-center py-3 me-4">
                         <small class="fa fa-map-marker-alt text-primary me-2"></small>
                         <small>Makkah Industrial City, Mecca 24227, Saudi Arabia</small>
-                        <small> <a href="" class="lang-btn">العربية</a>
+                        <small> <a href="/lang/ar" class="lang-btn"
+                                style="border-right: 2px solid #fff; padding-right: 20px;">العربية</a>
+                            <a href="/lang/en" class="lang-btn" style="margin-left: 20px;">English</a>
                         </small>
                     </div>
                 </div>
@@ -47,11 +49,11 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto p-4 p-lg-0">
-                    <a href="/" class="nav-item nav-link active">Home</a>
-                    <a href="/about" class="nav-item nav-link">About</a>
-                    <a href="/service" class="nav-item nav-link">Service</a>
-                    <a href="/project" class="nav-item nav-link">Project</a>
-                    <a href="/contact" class="nav-item nav-link">Contact</a>
+                    <a href="/" class="nav-item nav-link active">الرئيسية</a>
+                    <a href="/about" class="nav-item nav-link">من نحن</a>
+                    <a href="/service" class="nav-item nav-link">خدماتنا</a>
+                    <a href="/project" class="nav-item nav-link">مشاريعنا</a>
+                    <a href="/contact" class="nav-item nav-link">اتصل بنا</a>
                 </div>
             </div>
         </nav>
@@ -69,11 +71,12 @@
                             <div class="container">
                                 <div class="row justify-content-center">
                                     <div class="col-12 col-lg-8 text-center">
-                                        <h5 class="text-white text-uppercase mb-3 animated slideInDown">Lorem Ipsum</h5>
-                                        <p class="fs-5 fw-medium text-white mb-4 pb-2">Lorem Ipsum is simply dummy text
-                                            of
-                                            the
-                                            printing and typesetting industry. Lorem Ipsum has been the industry's </p>
+                                        <h5 class="text-white text-uppercase mb-3 animated slideInDown">
+                                            <%=s.title.ar%>
+                                        </h5>
+                                        <p class="fs-5 fw-medium text-white mb-4 pb-2">
+                                            <%=s.caption.ar%>
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -96,10 +99,10 @@
                     <div class="col-lg-6 about-text py-5 wow fadeIn" data-wow-delay="0.5s">
                         <div class="p-lg-5 pe-lg-0">
                             <div class="section-title text-start">
-                                <h1 class="display-5 mb-4">About Us</h1>
+                                <h1 class="display-5 mb-4">من نحن</h1>
                             </div>
                             <p class="mb-4 pb-2">
-                                <%= about.en%>
+                                <%= about.ar%>
                             </p>
                             <div class="row g-4 mb-4 pb-2">
                                 <div class="col-sm-6 wow fadeIn" data-wow-delay="0.1s">
@@ -112,7 +115,7 @@
                                             <h2 class="text-primary mb-1" data-toggle="counter-up">
                                                 <%=about.clints%>
                                             </h2>
-                                            <p class="fw-medium mb-0">Happy Clients</p>
+                                            <p class="fw-medium mb-0">عدد العملاء</p>
                                         </div>
                                     </div>
                                 </div>
@@ -126,12 +129,12 @@
                                             <h2 class="text-primary mb-1" data-toggle="counter-up">
                                                 <%=about.projects%>
                                             </h2>
-                                            <p class="fw-medium mb-0">Projects Done</p>
+                                            <p class="fw-medium mb-0">مشاريع منتهية</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <a href="/main/wood-profile.pdf" class="btn btn-primary py-3 px-5">Explore More</a>
+                            <a href="/main/wood-profile.pdf" class="btn btn-primary py-3 px-5">المزيد</a>
                         </div>
                     </div>
                 </div>
@@ -144,7 +147,7 @@
         <div class="container-xxl py-5">
             <div class="container">
                 <div class="section-title text-center">
-                    <h1 class="display-5 mb-5">Our Services</h1>
+                    <h1 class="display-5 mb-5">خدماتنا</h1>
                 </div>
                 <div class="row g-4">
                     <%let i=0 %>
@@ -156,10 +159,10 @@
                                     </div>
                                     <div class="p-4 text-center border border-5 border-light border-top-0">
                                         <h4 class="mb-3">
-                                            <%=s.title.en%>
+                                            <%=s.title.ar%>
                                         </h4>
                                         <p>
-                                            <%=s.content.en%>
+                                            <%=s.content.ar%>
                                         </p>
                                     </div>
                                 </div>
@@ -178,7 +181,7 @@
                     <div class="col-lg-6 feature-text py-5 wow fadeIn" data-wow-delay="0.5s">
                         <div class="p-lg-5 ps-lg-0">
                             <div class="section-title text-start">
-                                <h1 class="display-5 mb-4">Why Choose Us</h1>
+                                <h1 class="display-5 mb-4">لماذا نحن</h1>
                             </div>
                             <p class="mb-4 pb-2">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam
                                 amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo
@@ -252,15 +255,15 @@
         <div class="container-xxl py-5">
             <div class="container">
                 <div class="section-title text-center">
-                    <h1 class="display-5 mb-5">Our Projects</h1>
+                    <h1 class="display-5 mb-5">مشاريعنا</h1>
                 </div>
                 <div class="row mt-n2 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="col-12 text-center">
                         <ul class="list-inline mb-5" id="portfolio-flters">
-                            <li class="mx-2 active" data-filter="*">All</li>
+                            <li class="mx-2 active" data-filter="*">الكل</li>
                             <% categs.forEach(c=>{ %>
-                                <li class="mx-2" data-filter=".<%=c.en.replace(/ /g, "")%>">
-                                    <%= c.en%>
+                                <li class="mx-2" data-filter=".<%=c.ar.replace(/ /g, "")%>">
+                                    <%= c.ar%>
                                 </li>
                                 <%}) %>
                         </ul>
@@ -268,7 +271,7 @@
                 </div>
                 <div class="row g-4 portfolio-container">
                     <%projects.forEach(p=>{%>
-                        <div class="col-lg-4 col-md-6 portfolio-item <%=p.categ.en.replace(/ /g, "")%> wow fadeInUp"
+                        <div class="col-lg-4 col-md-6 portfolio-item <%=p.categ.ar.replace(/ /g, "")%> wow fadeInUp"
                             data-wow-delay="0.<%i++%>s">
                             <div class="rounded overflow-hidden">
                                 <div class="position-relative overflow-hidden">
@@ -282,10 +285,10 @@
                                 </div>
                                 <div class="border border-5 border-light border-top-0 p-4">
                                     <p class="text-primary fw-medium mb-2">
-                                        <%=p.name.en%>
+                                        <%=p.name.ar%>
                                     </p>
                                     <h5 class="lh-base mb-0">
-                                        <%=p.desc.en%></a>
+                                        <%=p.desc.ar%></a>
                                 </div>
                             </div>
                         </div>
@@ -331,7 +334,7 @@
                         <div class="col-lg-6 quote-text py-5 wow fadeIn" data-wow-delay="0.5s">
                             <div class="p-lg-5 pe-lg-0">
                                 <div class="section-title text-start">
-                                    <h1 class="display-5 mb-4">Contact Us</h1>
+                                    <h1 class="display-5 mb-4">اتصل بنا</h1>
                                 </div>
                             </div>
                             <form action="/send-mail" method="post">
@@ -353,7 +356,7 @@
                                             placeholder="message"></textarea>
                                     </div>
                                     <div class="col-12">
-                                        <button class="btn btn-primary w-100 py-3" type="submit">Submit</button>
+                                        <button class="btn btn-primary w-100 py-3" type="submit">ارسال</button>
                                     </div>
                                 </div>
                             </form>
