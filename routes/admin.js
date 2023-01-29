@@ -1,22 +1,26 @@
 const express = require('express');
 const route = express.Router();
 const adminController = require('../controllers/admin');
-
-route.get('/', adminController.getMain);
+const authController = require('../auth/isAdmin');
+route.get('/', authController.isAdmin, adminController.getMain);
 /********************* slider */
-route.post('/add-slide', adminController.addSlider);
-route.get('/remove-slide/:sId', adminController.removeSlide);
+route.post('/add-slide', authController.isAdmin, adminController.addSlider);
+route.get('/remove-slide/:sId', authController.isAdmin, adminController.removeSlide);
 /************************** about *********************************** */
-route.post('/about', adminController.about);
+route.post('/about', authController.isAdmin, adminController.about);
 /********************************services *****************************/
 route.post('/add-serv', adminController.addServ);
-route.get('/remove-serv/:id', adminController.removeServ);
+route.get('/remove-serv/:id', authController.isAdmin, adminController.removeServ);
 /****************************projects *********************************/
-route.post('/add-project-categ', adminController.addProjectCateg);
-route.get('/remove-project-categ/:id', adminController.removeProjectCateg);
-route.post('/add-project', adminController.addProject)
-route.get('/remove-project/:id', adminController.removeProject)
+route.post('/add-project-categ', authController.isAdmin, adminController.addProjectCateg);
+route.get('/remove-project-categ/:id', authController.isAdmin, adminController.removeProjectCateg);
+route.post('/add-project', authController.isAdmin, adminController.addProject)
+route.get('/remove-project/:id', authController.isAdmin, adminController.removeProject)
 /*****************************parten ************************************/
-route.post('/add-parten', adminController.addParten);
-route.get('/remove-parten/:id', adminController.removeParten);
+route.post('/add-parten', authController.isAdmin, adminController.addParten);
+route.get('/remove-parten/:id', authController.isAdmin, adminController.removeParten);
+/*********************************************************************************** */
+route.get('/login', adminController.getAdminLogin);
+route.post('/login', adminController.postAdminLogin);
+route.get('/signout', adminController.adminLogOut);
 module.exports = route

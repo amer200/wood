@@ -74,7 +74,7 @@ exports.sendMail = (req, res) => {
     const subject = req.body.subject;
     const msg = req.body.msg;
     const mail = {
-        from: name,
+        from: process.env.EMAIL,
         to: process.env.EMAIL,
         subject: subject,
         text: `from ${name} <${email}>\n ${subject} \n${msg}`
@@ -84,7 +84,7 @@ exports.sendMail = (req, res) => {
             console.log(err);
             res.status(500).send("Something went wrong.");
         } else {
-            res.status(200).send("Email successfully sent to recipient!");
+            res.status(200).redirect('/');
         }
     });
 };

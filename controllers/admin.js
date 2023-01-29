@@ -253,3 +253,20 @@ exports.removeParten = (req, res) => {
         })
 }
 /* parten end */
+/* admin login */
+exports.getAdminLogin = (req, res) => {
+    res.render('admin/login')
+}
+exports.postAdminLogin = (req, res) => {
+    const password = req.body.password;
+    if (password == process.env.PASS) {
+        req.session.admin = true;
+        res.redirect('/admin')
+    } else {
+        res.send('error: wrong password !')
+    }
+}
+exports.adminLogOut = (req, res) => {
+    req.session.destroy();
+    res.redirect('/')
+}
