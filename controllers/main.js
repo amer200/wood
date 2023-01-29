@@ -8,7 +8,7 @@ const Parten = require('../models/parten');
 const nodemailer = require("nodemailer");
 const transporter = nodemailer.createTransport({
     host: "smtp.wood.com.sa", //replace with your email provider
-    port: 143,
+    port: 587,
     secure: false,
     auth: {
         user: process.env.EMAIL,
