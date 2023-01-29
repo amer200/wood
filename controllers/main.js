@@ -4,6 +4,26 @@ const Serv = require('../models/serv');
 const Project = require('../models/project');
 const Projectcateg = require('../models/projectcateg');
 const Parten = require('../models/parten');
+/***************************************** */
+const nodemailer = require("nodemailer");
+const transporter = nodemailer.createTransport({
+    host: "smtp.wood.com.sa", //replace with your email provider
+    port: 143,
+    secure: false,
+    auth: {
+        user: process.env.EMAIL,
+        pass: process.env.PASS,
+    },
+});
+transporter.verify(function (error, success) {
+    if (error) {
+        console.log(error);
+    } else {
+        console.log("Server is ready to take our messages");
+    }
+});
+
+/******************************************************************* */
 exports.getMain = async (req, res) => {
     const slides = await Slider.find();
     const about = await About.findOne();
@@ -42,3 +62,26 @@ exports.getProjects = async (req, res) => {
         categs: projectcateg
     })
 }
+exports.getContact = (req, res) => {
+    res.render('main/contact')
+}
+exports.sendMail = (req, res) => {
+    const name = req.body.name;
+    const email = req.body.email;
+    const subject = req.body.subject;
+    const msg = req.body.msg;
+    const mail = {
+        from: name,
+        to: process.env.EMAIL,
+        subject: subject,
+        text: `from ${name} <${email}>\n ${subject} \n${msg}`
+    };
+    transporter.sendMail(mail, (err, data) => {
+        if (err) {
+            console.log(err);
+            res.status(500).send("Something went wrong.");
+        } else {
+            res.status(200).send("Email successfully sent to recipient!");
+        }
+    });
+};
