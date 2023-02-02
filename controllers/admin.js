@@ -23,18 +23,12 @@ exports.getMain = async (req, res) => {
 }
 /* slider  start*/
 exports.addSlider = (req, res) => {
-    const title = {
-        ar: req.body.titleAr,
-        en: req.body.titleEn,
-    };
-    const caption = {
-        ar: req.body.captionAr,
-        en: req.body.captionEn,
-    };
+    const ar = req.body.ar;
+    const en = req.body.en;
     const img = req.file.path.split('public')[1];
     const slide = new Slider({
-        title: title,
-        caption: caption,
+        ar: ar,
+        en: en,
         img: img
     });
     slide.save()

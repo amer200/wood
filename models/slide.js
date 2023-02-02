@@ -6,10 +6,8 @@ const slideSchema = mongoose.Schema({
         ar: String,
         en: String
     },
-    caption: {
-        ar: String,
-        en: String
-    }
+    ar: String,
+    en: String
 })
 
 module.exports = mongoose.model('Slide', slideSchema);

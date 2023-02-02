@@ -1,7 +1,7 @@
 <div class="col-6 d-none all-forms" id="slider">
     <div class="row">
         <div class="col-12" style="margin-bottom: 10px;">
-            <form action="/admin/add-slide" method="post" enctype="multipart/form-data">
+            <!-- <form action="/admin/add-slide" method="post" enctype="multipart/form-data">
                 <h4>add new carousel</h4>
                 <div class="mb-3">
                     <label for="titleOne" class="form-label">title</label>
@@ -19,6 +19,37 @@
                     <input type="file" name="img" class="form-control">
                 </div>
                 <button type="submit" class="btn btn-dark">submit</button>
+            </form> -->
+            <form action="/admin/add-slide" class="p-5" method="post" enctype="multipart/form-data"
+                id="sliderForm">
+                <div class="mb-3">
+                    <h3>slider content English</h3>
+                </div>
+                <div class="mb-3">
+                    <div class="quill" id="sliderEditorEn">
+                    </div>
+                </div>
+                <input type="hidden" id="sliderEn" name="en">
+                <input type="hidden" id="sliderAr" name="ar">
+                <br>
+                <hr>
+                <hr>
+                <br>
+                <div class="mb-3">
+                    <h3>محتوى الslider عربي</h3>
+                </div>
+                <div class="mb-3">
+                    <div class="quill" id="sliderEditorAr">
+                    </div>
+                </div>
+                <hr>
+                <div class="mb-3">
+                    <h3>الصورة</h3>
+                </div>
+                <div class="mb-3">
+                    <input type="file" class="form-control" name="img">
+                </div>
+                <button class="btn btn-dark" type="button" onclick="submitSlider()">حفظ</button>
             </form>
         </div>
         <hr>
