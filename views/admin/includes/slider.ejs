@@ -1,6 +1,6 @@
-<div class="col-6 d-none all-forms" id="slider">
+<div class="col-12 d-none all-forms" id="slider">
     <div class="row">
-        <div class="col-12" style="margin-bottom: 10px;">
+        <div class="col-6" style="margin-bottom: 10px;">
             <!-- <form action="/admin/add-slide" method="post" enctype="multipart/form-data">
                 <h4>add new carousel</h4>
                 <div class="mb-3">
@@ -20,8 +20,7 @@
                 </div>
                 <button type="submit" class="btn btn-dark">submit</button>
             </form> -->
-            <form action="/admin/add-slide" class="p-5" method="post" enctype="multipart/form-data"
-                id="sliderForm">
+            <form action="/admin/add-slide" class="p-5" method="post" enctype="multipart/form-data" id="sliderForm">
                 <div class="mb-3">
                     <h3>slider content English</h3>
                 </div>
@@ -47,10 +46,21 @@
                     <h3>الصورة</h3>
                 </div>
                 <div class="mb-3">
-                    <input type="file" class="form-control" name="img">
+                    <input type="file" class="form-control" name="img" id="sliderImg">
                 </div>
                 <button class="btn btn-dark" type="button" onclick="submitSlider()">حفظ</button>
             </form>
+        </div>
+        <div class="col-6">
+            <button class="btn btn-dark" onclick="sliderPrev('ar')">معاينة العربي</button>
+            <button class="btn btn-dark" onclick="sliderPrev('en')">معاينة English</button>
+
+            <div id="sliderPrev" style="width: 100%;
+            height: 500px;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            padding-top:100px;
+            text-align: center;"></div>
         </div>
         <hr>
         <div class="col-12" style="margin-top: 10px;">

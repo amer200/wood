@@ -29,6 +29,7 @@ const modules = {
     ['clean']                                         // remove formatting button
   ]
 };
+/*********************************** */
 const sliderQuillEn = new Quill('#sliderEditorEn', {
   modules: modules,
   theme: 'snow'
@@ -37,11 +38,28 @@ const sliderQuillAr = new Quill('#sliderEditorAr', {
   modules: modules,
   theme: 'snow'
 });
+const sliderAr = document.getElementById('sliderAr');
+const sliderEn = document.getElementById('sliderEn');
+const sliderImg = document.getElementById('sliderImg');
+const sliderPrev = (lang) => {
+  const box = document.getElementById('sliderPrev');
+  const img = sliderImg.files[0];
+  console.log(img);
+  box.style.backgroundImage = `url('${URL.createObjectURL(img)}')`;
+  if (lang == 'ar') {
+    box.innerHTML = sliderQuillAr.root.innerHTML;
+  } else {
+    box.innerHTML = sliderQuillEn.root.innerHTML;
+  }
+}
+// con () => {
+//   const img = sliderImg.value;
+//   const content = sliderQuillAr.root.innerHTML;
+//   sliderPrev(img, content)
+// });
 const submitSlider = () => {
   const form = document.getElementById('sliderForm');
-  const ar = document.getElementById('sliderAr');
-  const en = document.getElementById('sliderEn');
-  ar.value = sliderQuillAr.root.innerHTML;
-  en.value = sliderQuillEn.root.innerHTML;
+  sliderAr.value = sliderQuillAr.root.innerHTML;
+  sliderEn.value = sliderQuillEn.root.innerHTML;
   form.submit();
 }

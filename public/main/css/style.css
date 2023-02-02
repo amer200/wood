@@ -82,6 +82,7 @@
     position: relative;
     z-index: 9;
     color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .top-bar .lang-btn {
@@ -215,7 +216,7 @@ nav {
 }
 
 #navbarCollapse {
-    background-color: rgba(184, 137, 94, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     border: 0px solid;
     border-top-left-radius: 85px;
     border-bottom-left-radius: 85px;
