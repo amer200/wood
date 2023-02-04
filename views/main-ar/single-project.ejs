@@ -1,0 +1,16 @@
+<%- include('includes/head') %>
+    <%- include('includes/loading-page') %>
+        <%- include('includes/header',{page: p.name.ar }) %>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>
+                            <%= p.desc.ar %>
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <img class="img-fluid" src="<%= p.img %>" alt="">
+                    </div>
+                </div>
+            </div>
+            <%- include('includes/footer') %>

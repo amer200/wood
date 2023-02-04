@@ -6,6 +6,7 @@ route.get('/', mainController.getMain);
 route.get('/about', mainController.getAbout);
 route.get('/service', mainController.getServ);
 route.get('/project', mainController.getProjects);
+route.get('/project-details/:id', mainController.getProject);
 route.get('/contact', mainController.getContact);
 route.post('/send-mail', mainController.sendMail);
 route.get('/lang/:l', mainController.changeLang);

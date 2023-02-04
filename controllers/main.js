@@ -6,6 +6,7 @@ const Projectcateg = require('../models/projectcateg');
 const Parten = require('../models/parten');
 /***************************************** */
 const nodemailer = require("nodemailer");
+const { name } = require('ejs');
 const transporter = nodemailer.createTransport({
     host: "smtp.wood.com.sa", //replace with your email provider
     port: 587,
@@ -79,6 +80,18 @@ exports.getProjects = async (req, res) => {
     res.render(`main-${lang}/project`, {
         projects: projects,
         categs: projectcateg
+    })
+}
+exports.getProject = async (req, res) => {
+    const id = req.params.id;
+    const project = await Project.findById(id);
+    let lang = 'ar'
+    if (req.session.lang) {
+        lang = req.session.lang;
+    }
+    console.log(project)
+    res.render(`main-${lang}/single-project`, {
+        p: project,
     })
 }
 exports.getContact = (req, res) => {
