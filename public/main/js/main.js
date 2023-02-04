@@ -113,5 +113,27 @@
         portfolioIsotope.isotope({ filter: $(this).data('filter') });
     });
 
+    // specify the fonts you would 
+    var fonts = ['Cairo', 'sans-serif', 'Roboto', 'Roboto Mono', 'monospace'];
+    // generate code friendly names
+    function getFontName(font) {
+        return font.toLowerCase().replace(/\s/g, "-");
+    }
+    var fontNames = fonts.map(font => getFontName(font));
+    // add fonts to style
+    var fontStyles = "";
+    fonts.forEach(function (font) {
+        var fontName = getFontName(font);
+        fontStyles += ".ql-snow .ql-picker.ql-font .ql-picker-label[data-value=" + fontName + "]::before, .ql-snow .ql-picker.ql-font .ql-picker-item[data-value=" + fontName + "]::before {" +
+            "content: '" + font + "';" +
+            "font-family: '" + font + "', sans-serif;" +
+            "}" +
+            ".ql-font-" + fontName + "{" +
+            " font-family: '" + font + "', sans-serif;" +
+            "}";
+    });
+    var node = document.createElement('style');
+    node.innerHTML = fontStyles;
+    document.body.appendChild(node);
 })(jQuery);
 
