@@ -10,34 +10,44 @@ const showElement = (id) => {
 }
 /************* */
 let Font = Quill.import('formats/font');
-Font.whitelist = ['times-new-roman', 'arial'];
+var Size = Quill.import('attributors/style/size');
 Quill.register(Font, true);
-const modules = {
-  toolbar: [
-    ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
-    ['blockquote', 'code-block', 'link'],
+Quill.register(Size, true);
+Size.whitelist = ['14px', '16px', '18px'];
+Font.whitelist = ['inconsolata', 'roboto', 'mirza', 'arial'];
 
-    [{ 'header': 1 }, { 'header': 2 }],               // custom button values
-    [{ 'list': 'ordered' }, { 'list': 'bullet' }],
-    [{ 'script': 'sub' }, { 'script': 'super' }],      // superscript/subscript
-    [{ 'indent': '-1' }, { 'indent': '+1' }],          // outdent/indent
-    [{ 'direction': 'rtl' }],                         // text direction
+var toolbarOptions = [
+  ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+  ['blockquote', 'code-block'],
 
-    [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
-    [{ 'align': [] }],
+  [{ 'header': 1 }, { 'header': 2 }],               // custom button values
+  [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+  [{ 'script': 'sub' }, { 'script': 'super' }],      // superscript/subscript
+  [{ 'indent': '-1' }, { 'indent': '+1' }],          // outdent/indent
+  [{ 'direction': 'rtl' }],                         // text direction
 
-    ['clean']                                         // remove formatting button
-  ]
-};
-/*********************************** */
+  [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+  [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+
+  [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+  [{ 'font': [] }],
+  [{ 'align': [] }],
+
+  ['clean']                                         // remove formatting button
+];
 const sliderQuillEn = new Quill('#sliderEditorEn', {
-  modules: modules,
+  modules: {
+    toolbar: toolbarOptions
+  },
   theme: 'snow'
 });
 const sliderQuillAr = new Quill('#sliderEditorAr', {
-  modules: modules,
+  modules: {
+    toolbar: toolbarOptions
+  },
   theme: 'snow'
 });
+/*********************************** */
 const sliderAr = document.getElementById('sliderAr');
 const sliderEn = document.getElementById('sliderEn');
 const sliderImg = document.getElementById('sliderImg');
