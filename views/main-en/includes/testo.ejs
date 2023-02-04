@@ -9,13 +9,13 @@
                 <div class="testimonial-item text-center">
                     <img class="img-fluid bg-light p-2 mx-auto mb-3" src="<%= p.img%>"
                         style="width: 90px; height: 90px;">
-                    <div class="testimonial-text text-center p-4">
+                    <div class="testimonial-text text-center ">
+                        <h1 class="mb-1">
+                            <%=p.name.en%>
+                        </h1>
                         <p>
                             <%=p.caption.en%>
                         </p>
-                        <h5 class="mb-1">
-                            <%=p.name.en%>
-                        </h5>
                     </div>
                 </div>
                 <% }) %>

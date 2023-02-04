@@ -81,7 +81,8 @@
     $(".testimonial-carousel").owlCarousel({
         autoplay: true,
         smartSpeed: 1000,
-        center: true,
+        // center: true,
+        items: 3,
         dots: false,
         loop: true,
         nav: true,
