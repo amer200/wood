@@ -21,3 +21,7 @@ li {
     background-position: center;
 
 }
+
+.rte-modern.rte-desktop.rte-toolbar-default {
+    min-width: 100% !important;
+}

@@ -1,31 +1,14 @@
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 <div class="col-12 d-none all-forms" id="slider">
     <div class="row">
         <div class="col-6" style="margin-bottom: 10px;">
-            <!-- <form action="/admin/add-slide" method="post" enctype="multipart/form-data">
-                <h4>add new carousel</h4>
-                <div class="mb-3">
-                    <label for="titleOne" class="form-label">title</label>
-                    <input type="text" name="titleEn" class="form-control" placeholder="titel">
-                    <label for="titleOne" class="form-label">العنوان</label>
-                    <input type="text" name="titleAr" class="form-control" placeholder="العنوان">
-                </div>
-                <div class="mb-3">
-                    <label for="titletwow" class="form-label">caption</label>
-                    <input type="text" name="captionEn" class="form-control" placeholder="caption">
-                    <label for="titletwow" class="form-label">الوصف</label>
-                    <input type="text" name="captionAr" class="form-control" placeholder="الوصف">
-                </div>
-                <div class="mb-3">
-                    <input type="file" name="img" class="form-control">
-                </div>
-                <button type="submit" class="btn btn-dark">submit</button>
-            </form> -->
             <form action="/admin/add-slide" class="p-5" method="post" enctype="multipart/form-data" id="sliderForm">
                 <div class="mb-3">
                     <h3>slider content English</h3>
                 </div>
                 <div class="mb-3">
-                    <div class="quill" id="sliderEditorEn">
+                    <div>
+                        <textarea id="tinyEn"></textarea>
                     </div>
                 </div>
                 <input type="hidden" id="sliderEn" name="en">
@@ -38,7 +21,8 @@
                     <h3>محتوى الslider عربي</h3>
                 </div>
                 <div class="mb-3">
-                    <div class="quill" id="sliderEditorAr">
+                    <div>
+                        <textarea id="tinyAr"></textarea>
                     </div>
                 </div>
                 <hr>
