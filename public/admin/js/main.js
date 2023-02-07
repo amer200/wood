@@ -59,3 +59,16 @@ const projectSubmit = () => {
   projectEn.value = projectEnEditor.getHTMLCode();
   form.submit();
 }
+/********************* why us */
+var whyArEditor = new RichTextEditor("#whyTinaAr");
+var whyEnEditor = new RichTextEditor("#whyTinaEn");
+/*********************************** */
+const whyAr = document.getElementById('whyAr');
+const whyEn = document.getElementById('whyEn');
+
+const whySubmit = () => {
+  const form = document.getElementById('whyForm');
+  whyAr.value = whyArEditor.getHTMLCode();
+  whyEn.value = whyEnEditor.getHTMLCode();
+  form.submit();
+}

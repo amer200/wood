@@ -4,6 +4,7 @@ const Serv = require('../models/serv');
 const Project = require('../models/project');
 const Projectcateg = require('../models/projectcateg');
 const Parten = require('../models/parten');
+const Why = require('../models/why-us');
 const fs = require('fs');
 exports.getMain = async (req, res) => {
     const slides = await Slider.find();
@@ -12,13 +13,15 @@ exports.getMain = async (req, res) => {
     const projects = await Project.find();
     const projectcateg = await Projectcateg.find();
     const parten = await Parten.find();
+    const why = await Why.findOne();
     res.render('admin/index', {
         slides: slides,
         about: about,
         servs: servs,
         projects: projects,
         categs: projectcateg,
-        parten: parten
+        parten: parten,
+        why: why
     });
 }
 /* slider  start*/
@@ -247,6 +250,35 @@ exports.removeParten = (req, res) => {
         })
 }
 /* parten end */
+/* why start */
+exports.postWhy = (req, res) => {
+    const ar = req.body.ar;
+    const en = req.body.en;
+    const img = req.file.path.split('public')[1];
+    Why.findOne()
+        .then(w => {
+            if (w) {
+                w.ar = ar;
+                w.en = en;
+                w.img = img;
+                return Why.save();
+            } else {
+                const w = new Why({
+                    ar: ar,
+                    en: en,
+                    img: img
+                })
+                return w.save();
+            }
+        })
+        .then(w => {
+            res.redirect('/admin');
+        })
+        .catch(err => {
+            console.log(err)
+        })
+}
+/* why end */
 /* admin login */
 exports.getAdminLogin = (req, res) => {
     res.render('admin/login')

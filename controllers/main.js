@@ -4,9 +4,9 @@ const Serv = require('../models/serv');
 const Project = require('../models/project');
 const Projectcateg = require('../models/projectcateg');
 const Parten = require('../models/parten');
+const Why = require('../models/why-us');
 /***************************************** */
 const nodemailer = require("nodemailer");
-const { name } = require('ejs');
 const transporter = nodemailer.createTransport({
     host: "smtp.wood.com.sa", //replace with your email provider
     port: 587,
@@ -35,6 +35,7 @@ exports.getMain = async (req, res) => {
     const projects = await Project.find().populate('categ');
     const projectcateg = await Projectcateg.find();
     const parten = await Parten.find();
+    const why = await Why.findOne();
     let lang = 'ar'
     if (req.session.lang) {
         lang = req.session.lang;
@@ -46,6 +47,7 @@ exports.getMain = async (req, res) => {
         projects: projects,
         categs: projectcateg,
         partens: parten,
+        why: why
     });
 }
 exports.getAbout = async (req, res) => {

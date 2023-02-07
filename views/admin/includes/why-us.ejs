@@ -1,0 +1,28 @@
+<div class="col-6 d-none all-forms" id="why">
+    <form action="/admin/why" method="post" enctype="multipart/form-data" id="whyForm">
+        <h4>why us</h4>
+        <div class="mb-3">
+            <label for="txt">content</label>
+            <div>
+                <textarea id="whyTinaEn">
+                    <%if(why){%><%=why.en%><%}%>
+                </textarea>
+            </div>
+            <input type="hidden" name="en" id="whyEn">
+        </div>
+        <div class="mb-3">
+            <label for="txt">المحتوى</label>
+            <div>
+                <textarea id="whyTinaAr">
+                    <%if(why){%><%=why.ar%><%}%>
+                </textarea>
+            </div>
+            <input type="hidden" name="ar" id="whyAr">
+        </div>
+        <div class="mb-3">
+            <label for="txt">الصورة</label>
+            <input type="file" name="img" class="form-control">
+        </div>
+        <button type="button" class="btn btn-dark" onclick="whySubmit()">submit</button>
+    </form>
+</div>
