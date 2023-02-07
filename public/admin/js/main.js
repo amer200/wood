@@ -8,7 +8,7 @@ const showElement = (id) => {
   })
   showE.classList.remove('d-none');
 }
-/************* */
+/*************  slider*/
 var sliderArEditor = new RichTextEditor("#tinyAr");
 var sliderEnEditor = new RichTextEditor("#tinyEn");
 /*********************************** */
@@ -21,9 +21,9 @@ const sliderPrev = (lang) => {
   console.log(img);
   box.style.backgroundImage = `url('${URL.createObjectURL(img)}')`;
   if (lang == 'ar') {
-    box.innerHTML = tinyMCE.get('tinyAr').getContent();
+    box.innerHTML = sliderArEditor.getHTMLCode();
   } else {
-    box.innerHTML = tinyMCE.get('tinyEn').getContent();
+    box.innerHTML = sliderEnEditor.getHTMLCode();
   }
 }
 
@@ -33,5 +33,29 @@ const submitSlider = () => {
   sliderEn.value = sliderEnEditor.getHTMLCode();
   form.submit();
 }
-/********************* */
-// var editor1 = new RichTextEditor("#div_editor1");
+/********************* about */
+var aboutArEditor = new RichTextEditor("#aboutinaAr");
+var aboutEnEditor = new RichTextEditor("#aboutinaEn");
+/*********************************** */
+const aboutAr = document.getElementById('aboutAr');
+const aboutEn = document.getElementById('aboutEn');
+
+const submitabout = () => {
+  const form = document.getElementById('aboutForm');
+  aboutAr.value = aboutArEditor.getHTMLCode();
+  aboutEn.value = aboutEnEditor.getHTMLCode();
+  form.submit();
+}
+/********************* project */
+var projectArEditor = new RichTextEditor("#projectTinaAr");
+var projectEnEditor = new RichTextEditor("#projectTinaEn");
+/*********************************** */
+const projectAr = document.getElementById('projectAr');
+const projectEn = document.getElementById('projectEn');
+
+const projectSubmit = () => {
+  const form = document.getElementById('projectForm');
+  projectAr.value = projectArEditor.getHTMLCode();
+  projectEn.value = projectEnEditor.getHTMLCode();
+  form.submit();
+}

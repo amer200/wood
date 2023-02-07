@@ -37,7 +37,7 @@
     </div>
     <div class="col-6">
         <h4>add project</h4>
-        <form action="/admin/add-project" method="post" enctype="multipart/form-data">
+        <form action="/admin/add-project" method="post" enctype="multipart/form-data" id="projectForm">
             <div class="mb-3">
                 <label for="name" class="form-label">project name</label>
                 <input type="text" name="nameen" class="form-control" placeholder="project name">
@@ -48,11 +48,13 @@
             </div>
             <div class="mb-3">
                 <label for="txt">project description</label>
-                <textarea name="descen" class="form-control" cols="30" rows="6"></textarea>
+                <input type="hidden" name="descen" id="projectEn">
+                <textarea id="projectTinaEn"></textarea>
             </div>
             <div class="mb-3">
                 <label for="txt">وصف المشروع</label>
-                <textarea name="descar" class="form-control" cols="30" rows="6"></textarea>
+                <input type="hidden" name="descar" id="projectAr">
+                <textarea id="projectTinaAr"></textarea>
             </div>
             <div class="mb-3">
                 <select class="form-select" name="categ" aria-label="Disabled select example">
@@ -67,7 +69,7 @@
             <div class="mb-3">
                 <input type="file" name="img" class="form-control">
             </div>
-            <button type="submit" class="btn btn-dark">submit</button>
+            <button type="button" onclick="projectSubmit()" class="btn btn-dark">submit</button>
         </form>
     </div>
 </div>

@@ -96,7 +96,7 @@
                                 <h1 class="display-5 mb-4">من نحن</h1>
                             </div>
                             <p class="mb-4 pb-2">
-                                ... <%= about.ar.slice(0,200)%>
+                                ... <%- about.ar.slice(0,200)%>
                             </p>
                             <div class="row g-4 mb-4 pb-2">
                                 <div class="col-sm-6 wow fadeIn" data-wow-delay="0.1s">
@@ -154,10 +154,10 @@
                                     </div>
                                     <div class="p-4 text-center border border-5 border-light border-top-0">
                                         <h4 class="mb-3">
-                                            <%=s.title.ar%>
+                                            <%-s.title.ar%>
                                         </h4>
                                         <p>
-                                            <%=s.content.ar%>
+                                            <%-s.content.ar%>
                                         </p>
                                     </div>
                                 </div>
@@ -258,7 +258,7 @@
                             <li class="mx-2 active" data-filter="*">الكل</li>
                             <% categs.forEach(c=>{ %>
                                 <li class="mx-2" data-filter=".<%=c.ar.replace(/ /g, "")%>">
-                                    <%= c.ar%>
+                                    <%- c.ar%>
                                 </li>
                                 <%}) %>
                         </ul>
@@ -280,10 +280,10 @@
                                 </div>
                                 <div class="border border-5 border-light border-top-0 p-4">
                                     <p class="text-primary fw-medium mb-2">
-                                        <%=p.name.ar%>
+                                        <%-p.name.ar%>
                                     </p>
                                     <h5 class="lh-base mb-0">
-                                        <%=p.desc.ar%></a>
+                                        <%-p.desc.ar%></a>
                                 </div>
                             </div>
                         </div>
