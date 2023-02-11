@@ -1,3 +1,38 @@
+@font-face {
+    font-family: Bukra-Bold;
+    src: url("/fonts/29LT-Bukra-Bold.otf");
+}
+
+@font-face {
+    font-family: Bukra-Medium;
+    src: url("/fonts/29LT-Bukra-Medium.otf");
+}
+
+@font-face {
+    font-family: Bukra-Regular;
+    src: url("/fonts/29LT-Bukra-Regular.otf");
+}
+
+@font-face {
+    font-family: The-Sans-Plain-alinma;
+    src: url("/fonts/ArbFONTS-The-Sans-Plain-alinma.ttf");
+}
+
+@font-face {
+    font-family: TheSans-Bold-alinma;
+    src: url("/fonts/ArbFONTS-TheSans-Bold-alinma.ttf");
+}
+
+@font-face {
+    font-family: RH-Zak-Bold-1;
+    src: url("/fonts/RH-Zak-Bold-1.otf");
+}
+
+@font-face {
+    font-family: RH-Zak-Reg-1;
+    src: url("/fonts/RH-Zak-Reg-1.otf");
+}
+
 /********** Template CSS **********/
 :root {
     --primary: #AB7442;
