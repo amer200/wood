@@ -170,191 +170,194 @@
 
 
         <!-- Feature Start -->
-        <div class="container-fluid bg-light overflow-hidden my-5 px-lg-0">
-            <div class="container feature px-lg-0">
-                <div class="row g-0 mx-lg-0">
-                    <div class="col-lg-6 feature-text py-5 wow fadeIn" data-wow-delay="0.5s">
-                        <div class="p-lg-5 ps-lg-0">
-                            <div class="section-title text-start">
-                                <h1 class="display-5 mb-4">لماذا نحن</h1>
-                            </div>
-                            <p class="mb-4 pb-2"><%- why.ar %></p>
-                            <div class="row g-4">
-                                <div class="col-6">
-                                    <div class="d-flex align-items-center">
-                                        <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white"
-                                            style="width: 60px; height: 60px;">
-                                            <i class="fa fa-check fa-2x text-primary"></i>
-                                        </div>
-                                        <div class="ms-4">
-                                            <p class="mb-2">Quality</p>
-                                            <h5 class="mb-0">Services</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="d-flex align-items-center">
-                                        <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white"
-                                            style="width: 60px; height: 60px;">
-                                            <i class="fa fa-user-check fa-2x text-primary"></i>
-                                        </div>
-                                        <div class="ms-4">
-                                            <p class="mb-2">Creative</p>
-                                            <h5 class="mb-0">Designers</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="d-flex align-items-center">
-                                        <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white"
-                                            style="width: 60px; height: 60px;">
-                                            <i class="fa fa-drafting-compass fa-2x text-primary"></i>
-                                        </div>
-                                        <div class="ms-4">
-                                            <p class="mb-2">Free</p>
-                                            <h5 class="mb-0">Consultation</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="d-flex align-items-center">
-                                        <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white"
-                                            style="width: 60px; height: 60px;">
-                                            <i class="fa fa-headphones fa-2x text-primary"></i>
-                                        </div>
-                                        <div class="ms-4">
-                                            <p class="mb-2">Customer</p>
-                                            <h5 class="mb-0">Support</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 pe-lg-0" style="min-height: 400px;">
-                        <div class="position-relative h-100">
-                            <img class="position-absolute img-fluid w-100 h-100" src="<%= why.img %>"
-                                style="object-fit: cover;" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Feature End -->
-
-
-        <!-- Projects Start -->
-        <div class="container-xxl py-5">
-            <div class="container">
-                <div class="section-title text-center">
-                    <h1 class="display-5 mb-5">مشاريعنا</h1>
-                </div>
-                <div class="row mt-n2 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="col-12 text-center">
-                        <ul class="list-inline mb-5" id="portfolio-flters">
-                            <li class="mx-2 active" data-filter="*">الكل</li>
-                            <% categs.forEach(c=>{ %>
-                                <li class="mx-2" data-filter=".<%=c.ar.replace(/ /g, "")%>">
-                                    <%- c.ar%>
-                                </li>
-                                <%}) %>
-                        </ul>
-                    </div>
-                </div>
-                <div class="row g-4 portfolio-container">
-                    <%projects.forEach(p=>{%>
-                        <div class="col-lg-4 col-md-6 portfolio-item <%=p.categ.ar.replace(/ /g, "")%> wow fadeInUp"
-                            data-wow-delay="0.<%i++%>s">
-                            <div class="rounded overflow-hidden">
-                                <div class="position-relative overflow-hidden">
-                                    <img class="img-fluid w-100" src="<%=p.img%>" alt="">
-                                    <div class="portfolio-overlay">
-                                        <a class="btn btn-square btn-outline-light mx-1" href="<%=p.img%>"
-                                            data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                                        <a class="btn btn-square btn-outline-light mx-1"
-                                            href="/project-details/<%-p._id%>"><i class="fa fa-link"></i></a>
-                                    </div>
-                                </div>
-                                <div class="border border-5 border-light border-top-0 p-4">
-                                    <p class="text-primary fw-medium mb-2">
-                                        <%-p.name.ar%>
-                                    </p>
-                                    <h5 class="lh-base mb-0">
-                                        <%-p.desc.ar%></a>
-                                </div>
-                            </div>
-                        </div>
-                        <%})%>
-                </div>
-            </div>
-        </div>
-        <!-- Projects End -->
-
-        <%- include('includes/testo') %>
-            <!-- Quote Start -->
+        <% if(why){%>
             <div class="container-fluid bg-light overflow-hidden my-5 px-lg-0">
-                <div class="container quote px-lg-0">
+                <div class="container feature px-lg-0">
                     <div class="row g-0 mx-lg-0">
-                        <div class="col-lg-6 ps-lg-0" style="min-height: 400px; padding-top: 40px;">
-                            <div class="position-relative h-100">
-                                <div class="mapouter">
-                                    <div class="gmap_canvas"><iframe width="600" height="500" id="gmap_canvas"
-                                            src="https://maps.google.com/maps?q=21%C2%B029'35.0%22N%2039%C2%B047'25.2%22E&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                                            frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a
-                                            href="https://123movies-to.org"></a><br>
-                                        <style>
-                                            .mapouter {
-                                                position: relative;
-                                                text-align: right;
-                                                height: 100%;
-                                                width: 100%;
-                                            }
-                                        </style><a href="https://www.embedgooglemap.net">how to add a google map to
-                                            wordpress</a>
-                                        <style>
-                                            .gmap_canvas {
-                                                overflow: hidden;
-                                                background: none !important;
-                                                height: 500px;
-                                                width: 600px;
-                                            }
-                                        </style>
+                        <div class="col-lg-6 feature-text py-5 wow fadeIn" data-wow-delay="0.5s">
+                            <div class="p-lg-5 ps-lg-0">
+                                <div class="section-title text-start">
+                                    <h1 class="display-5 mb-4">لماذا نحن</h1>
+                                </div>
+                                <p class="mb-4 pb-2"><%- why.ar %></p>
+                                <div class="row g-4">
+                                    <div class="col-6">
+                                        <div class="d-flex align-items-center">
+                                            <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white"
+                                                style="width: 60px; height: 60px;">
+                                                <i class="fa fa-check fa-2x text-primary"></i>
+                                            </div>
+                                            <div class="ms-4">
+                                                <p class="mb-2">Quality</p>
+                                                <h5 class="mb-0">Services</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="d-flex align-items-center">
+                                            <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white"
+                                                style="width: 60px; height: 60px;">
+                                                <i class="fa fa-user-check fa-2x text-primary"></i>
+                                            </div>
+                                            <div class="ms-4">
+                                                <p class="mb-2">Creative</p>
+                                                <h5 class="mb-0">Designers</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="d-flex align-items-center">
+                                            <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white"
+                                                style="width: 60px; height: 60px;">
+                                                <i class="fa fa-drafting-compass fa-2x text-primary"></i>
+                                            </div>
+                                            <div class="ms-4">
+                                                <p class="mb-2">Free</p>
+                                                <h5 class="mb-0">Consultation</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="d-flex align-items-center">
+                                            <div class="d-flex flex-shrink-0 align-items-center justify-content-center bg-white"
+                                                style="width: 60px; height: 60px;">
+                                                <i class="fa fa-headphones fa-2x text-primary"></i>
+                                            </div>
+                                            <div class="ms-4">
+                                                <p class="mb-2">Customer</p>
+                                                <h5 class="mb-0">Support</h5>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6 quote-text py-5 wow fadeIn" data-wow-delay="0.5s">
-                            <div class="p-lg-5 pe-lg-0">
-                                <div class="section-title text-start">
-                                    <h1 class="display-5 mb-4">اتصل بنا</h1>
-                                </div>
+                        <div class="col-lg-6 pe-lg-0" style="min-height: 400px;">
+                            <div class="position-relative h-100">
+                                <img class="position-absolute img-fluid w-100 h-100" src="<%= why.img %>"
+                                    style="object-fit: cover;" alt="">
                             </div>
-                            <form action="/send-mail" method="post">
-                                <div class="row g-3">
-                                    <div class="col-6 col-sm-6">
-                                        <input type="text" class="form-control border-0" name="name"
-                                            placeholder="Your Name" style="height: 55px;">
-                                    </div>
-                                    <div class="col-6 col-sm-6">
-                                        <input type="email" class="form-control border-0" name="email"
-                                            placeholder="Your Email" style="height: 55px;">
-                                    </div>
-                                    <div class="col-md-12 col-sm-6">
-                                        <input type="text" class="form-control border-0" name="subject"
-                                            placeholder="subject" style="height: 55px;">
-                                    </div>
-                                    <div class="col-12">
-                                        <textarea class="form-control border-0" rows="5" name="msg"
-                                            placeholder="message"></textarea>
-                                    </div>
-                                    <div class="col-12">
-                                        <button class="btn btn-primary w-100 py-3" type="submit">ارسال</button>
-                                    </div>
-                                </div>
-                            </form>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Quote End -->
-            <%- include('includes/footer') %>
+            <%}%>
+                <!-- Feature End -->
+
+
+                <!-- Projects Start -->
+                <div class="container-xxl py-5">
+                    <div class="container">
+                        <div class="section-title text-center">
+                            <h1 class="display-5 mb-5">مشاريعنا</h1>
+                        </div>
+                        <div class="row mt-n2 wow fadeInUp" data-wow-delay="0.3s">
+                            <div class="col-12 text-center">
+                                <ul class="list-inline mb-5" id="portfolio-flters">
+                                    <li class="mx-2 active" data-filter="*">الكل</li>
+                                    <% categs.forEach(c=>{ %>
+                                        <li class="mx-2" data-filter=".<%=c.ar.replace(/ /g, "")%>">
+                                            <%- c.ar%>
+                                        </li>
+                                        <%}) %>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="row g-4 portfolio-container">
+                            <%projects.forEach(p=>{%>
+                                <div class="col-lg-4 col-md-6 portfolio-item <%=p.categ.ar.replace(/ /g, "")%> wow fadeInUp"
+                                    data-wow-delay="0.<%i++%>s">
+                                    <div class="rounded overflow-hidden">
+                                        <div class="position-relative overflow-hidden">
+                                            <img class="img-fluid w-100" src="<%=p.img%>" alt="">
+                                            <div class="portfolio-overlay">
+                                                <a class="btn btn-square btn-outline-light mx-1" href="<%=p.img%>"
+                                                    data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
+                                                <a class="btn btn-square btn-outline-light mx-1"
+                                                    href="/project-details/<%-p._id%>"><i class="fa fa-link"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="border border-5 border-light border-top-0 p-4">
+                                            <p class="text-primary fw-medium mb-2">
+                                                <%-p.name.ar%>
+                                            </p>
+                                            <h5 class="lh-base mb-0">
+                                                <%-p.desc.ar%></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <%})%>
+                        </div>
+                    </div>
+                </div>
+                <!-- Projects End -->
+
+                <%- include('includes/testo') %>
+                    <!-- Quote Start -->
+                    <div class="container-fluid bg-light overflow-hidden my-5 px-lg-0">
+                        <div class="container quote px-lg-0">
+                            <div class="row g-0 mx-lg-0">
+                                <div class="col-lg-6 ps-lg-0" style="min-height: 400px; padding-top: 40px;">
+                                    <div class="position-relative h-100">
+                                        <div class="mapouter">
+                                            <div class="gmap_canvas"><iframe width="600" height="500" id="gmap_canvas"
+                                                    src="https://maps.google.com/maps?q=21%C2%B029'35.0%22N%2039%C2%B047'25.2%22E&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                                                    frameborder="0" scrolling="no" marginheight="0"
+                                                    marginwidth="0"></iframe><a href="https://123movies-to.org"></a><br>
+                                                <style>
+                                                    .mapouter {
+                                                        position: relative;
+                                                        text-align: right;
+                                                        height: 100%;
+                                                        width: 100%;
+                                                    }
+                                                </style><a href="https://www.embedgooglemap.net">how to add a google map
+                                                    to
+                                                    wordpress</a>
+                                                <style>
+                                                    .gmap_canvas {
+                                                        overflow: hidden;
+                                                        background: none !important;
+                                                        height: 500px;
+                                                        width: 600px;
+                                                    }
+                                                </style>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 quote-text py-5 wow fadeIn" data-wow-delay="0.5s">
+                                    <div class="p-lg-5 pe-lg-0">
+                                        <div class="section-title text-start">
+                                            <h1 class="display-5 mb-4">اتصل بنا</h1>
+                                        </div>
+                                    </div>
+                                    <form action="/send-mail" method="post">
+                                        <div class="row g-3">
+                                            <div class="col-6 col-sm-6">
+                                                <input type="text" class="form-control border-0" name="name"
+                                                    placeholder="Your Name" style="height: 55px;">
+                                            </div>
+                                            <div class="col-6 col-sm-6">
+                                                <input type="email" class="form-control border-0" name="email"
+                                                    placeholder="Your Email" style="height: 55px;">
+                                            </div>
+                                            <div class="col-md-12 col-sm-6">
+                                                <input type="text" class="form-control border-0" name="subject"
+                                                    placeholder="subject" style="height: 55px;">
+                                            </div>
+                                            <div class="col-12">
+                                                <textarea class="form-control border-0" rows="5" name="msg"
+                                                    placeholder="message"></textarea>
+                                            </div>
+                                            <div class="col-12">
+                                                <button class="btn btn-primary w-100 py-3" type="submit">ارسال</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Quote End -->
+                    <%- include('includes/footer') %>
