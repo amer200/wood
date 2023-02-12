@@ -11,6 +11,7 @@ route.post('/about', authController.isAdmin, adminController.about);
 /********************************services *****************************/
 route.post('/add-serv', adminController.addServ);
 route.get('/remove-serv/:id', authController.isAdmin, adminController.removeServ);
+route.post('/edit-serv/:id', authController.isAdmin, adminController.editServ);
 /****************************projects *********************************/
 route.post('/add-project-categ', authController.isAdmin, adminController.addProjectCateg);
 route.get('/remove-project-categ/:id', authController.isAdmin, adminController.removeProjectCateg);

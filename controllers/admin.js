@@ -138,7 +138,36 @@ exports.removeServ = (req, res) => {
             console.log(err)
         })
 }
-
+exports.editServ = (req, res) => {
+    const id = req.params.id;
+    const title = {
+        ar: req.body.titlear,
+        en: req.body.titleen
+    };
+    const content = {
+        ar: req.body.ar,
+        en: req.body.en
+    }
+    console.log(req.body);
+    Serv.findById(id)
+        .then(s => {
+            if (req.file) {
+                fs.unlink(`public${s.img}`, (err) => {
+                    console.log(err)
+                })
+                s.img = req.file.path.split('public')[1];
+            }
+            s.title = title;
+            s.content = content;
+            return s.save();
+        })
+        .then(s => {
+            res.redirect('/admin');
+        })
+        .catch(err => {
+            console.log(err)
+        })
+}
 /* serv end */
 /* project start */
 exports.addProject = (req, res) => {
