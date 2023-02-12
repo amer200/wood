@@ -30,7 +30,7 @@
                 <% servs.forEach(s=>{%>
                     <li class="list-group-item"><img src="<%=s.img%>" alt="img" style="width: 80px;
                         height: 50px;"> <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal<%=s._id%>">
+                            data-bs-target="#exampleModal<%=s._id%>" style="float: right">
                             Edit
                         </button> <button type="button" class="btn btn-danger" onclick="removeServ('<%=s._id%>')"
                             style="float: right;">remove</button></li>
