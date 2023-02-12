@@ -3,6 +3,8 @@ const route = express.Router();
 const adminController = require('../controllers/admin');
 const authController = require('../auth/isAdmin');
 route.get('/', authController.isAdmin, adminController.getMain);
+/**meta */
+route.post('/meta', authController.isAdmin, adminController.Meta);
 /********************* slider */
 route.post('/add-slide', authController.isAdmin, adminController.addSlider);
 route.get('/remove-slide/:sId', authController.isAdmin, adminController.removeSlide);

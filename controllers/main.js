@@ -5,6 +5,7 @@ const Project = require('../models/project');
 const Projectcateg = require('../models/projectcateg');
 const Parten = require('../models/parten');
 const Why = require('../models/why-us');
+const Meta = require('../models/meta');
 /***************************************** */
 const nodemailer = require("nodemailer");
 const transporter = nodemailer.createTransport({
@@ -36,6 +37,7 @@ exports.getMain = async (req, res) => {
     const projectcateg = await Projectcateg.find();
     const parten = await Parten.find();
     const why = await Why.findOne();
+    const meta = await Meta.findOne();
     let lang = 'ar'
     if (req.session.lang) {
         lang = req.session.lang;
@@ -47,46 +49,54 @@ exports.getMain = async (req, res) => {
         projects: projects,
         categs: projectcateg,
         partens: parten,
-        why: why
+        why: why,
+        meta: meta
     });
 }
 exports.getAbout = async (req, res) => {
     const about = await About.findOne();
+    const meta = await Meta.findOne();
     let lang = 'ar'
     if (req.session.lang) {
         lang = req.session.lang;
     }
     res.render(`main-${lang}/about`, {
-        about: about
+        about: about,
+        meta: meta
     })
 }
 exports.getServ = async (req, res) => {
     const servs = await Serv.find();
     const parten = await Parten.find();
+    const meta = await Meta.findOne();
     let lang = 'ar'
     if (req.session.lang) {
         lang = req.session.lang;
     }
     res.render(`main-${lang}/service`, {
         servs: servs,
-        partens: parten
+        partens: parten,
+        meta: meta
     })
 }
 exports.getProjects = async (req, res) => {
     const projects = await Project.find().populate('categ');
     const projectcateg = await Projectcateg.find();
+    const meta = await Meta.findOne();
     let lang = 'ar'
     if (req.session.lang) {
         lang = req.session.lang;
     }
     res.render(`main-${lang}/project`, {
         projects: projects,
-        categs: projectcateg
+        categs: projectcateg,
+        meta: meta
     })
 }
 exports.getProject = async (req, res) => {
     const id = req.params.id;
     const project = await Project.findById(id);
+    const meta = await Meta.findOne();
     let lang = 'ar'
     if (req.session.lang) {
         lang = req.session.lang;
@@ -94,14 +104,18 @@ exports.getProject = async (req, res) => {
     console.log(project)
     res.render(`main-${lang}/single-project`, {
         p: project,
+        meta: meta
     })
 }
-exports.getContact = (req, res) => {
-    let lang = 'ar'
+exports.getContact = async (req, res) => {
+    const meta = await Meta.findOne();
+    let lang = 'ar';
     if (req.session.lang) {
         lang = req.session.lang;
     }
-    res.render(`main-${lang}/contact`)
+    res.render(`main-${lang}/contact`,{
+        meta: meta
+    })
 }
 exports.sendMail = (req, res) => {
     const name = req.body.name;

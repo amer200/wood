@@ -5,6 +5,7 @@ const Project = require('../models/project');
 const Projectcateg = require('../models/projectcateg');
 const Parten = require('../models/parten');
 const Why = require('../models/why-us');
+const Meta = require('../models/meta');
 const fs = require('fs');
 exports.getMain = async (req, res) => {
     const slides = await Slider.find();
@@ -14,6 +15,7 @@ exports.getMain = async (req, res) => {
     const projectcateg = await Projectcateg.find();
     const parten = await Parten.find();
     const why = await Why.findOne();
+    const meta = await Meta.findOne();
     res.render('admin/index', {
         slides: slides,
         about: about,
@@ -21,8 +23,32 @@ exports.getMain = async (req, res) => {
         projects: projects,
         categs: projectcateg,
         parten: parten,
-        why: why
+        why: why,
+        meta: meta
     });
+}
+/* meta */
+exports.Meta = (req, res) => {
+    Meta.findOne()
+        .then(m => {
+            if (m) {
+                m.en = req.body.en;
+                m.ar = req.body.ar;
+                return m.save();
+            } else {
+                const meta = new Meta({
+                    en: req.body.en,
+                    ar: req.body.ar
+                })
+                return meta.save();
+            }
+        })
+        .then(m => {
+            res.redirect('/admin');
+        })
+        .catch(err => {
+            console.log(err)
+        })
 }
 /* slider  start*/
 exports.addSlider = (req, res) => {

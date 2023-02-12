@@ -32,6 +32,32 @@
                                     <%- include('includes/project') %>
                                         <%- include('includes/parten') %>
                                             <%- include('includes/why-us') %>
+                                                <div class="col-6  all-forms">
+                                                    <div class="row">
+                                                        <div class="col-12" style="margin-bottom: 10px;">
+                                                            <form action="/admin/meta" method="post">
+                                                                <h4>meta Tags</h4>
+                                                                <div class="mb-3">
+                                                                    <label for="txt">meta tag in English</label>
+                                                                    <textarea name="en" class="form-control" cols="30"
+                                                                        rows="6"><%if(meta){%>
+                                                                            <%=meta.en%>
+                                                                        <%}%>
+                                                                        </textarea>
+                                                                </div>
+                                                                <div class="mb-3">
+                                                                    <label for="txt">meta tag in Arabic</label>
+                                                                    <textarea name="ar" class="form-control" cols="30"
+                                                                        rows="6"><%if(meta){%>
+                                                                            <%=meta.ar%>
+                                                                        <%}%></textarea>
+                                                                </div>
+                                                                <button type="submit"
+                                                                    class="btn btn-dark">submit</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
                     </div>
                 </div>
         </div>
