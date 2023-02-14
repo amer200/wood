@@ -10,7 +10,7 @@ const Meta = require('../models/meta');
 const nodemailer = require("nodemailer");
 const transporter = nodemailer.createTransport({
     host: "smtp.wood.com.sa", //replace with your email provider
-    port: 587,
+    port: 25,
     secure: false,
     auth: {
         user: process.env.EMAIL,
