@@ -316,7 +316,7 @@ exports.postWhy = (req, res) => {
                 w.ar = ar;
                 w.en = en;
                 w.img = img;
-                return Why.save();
+                return w.save();
             } else {
                 const w = new Why({
                     ar: ar,
