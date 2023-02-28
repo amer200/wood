@@ -24,6 +24,10 @@ route.post('/add-parten', authController.isAdmin, adminController.addParten);
 route.get('/remove-parten/:id', authController.isAdmin, adminController.removeParten);
 /*****************************why ****************************************/
 route.post('/why', authController.isAdmin, adminController.postWhy);
+/*****************************social **************************************/
+route.post('/social', authController.isAdmin, adminController.postSocial);
+/*****************************admin ********************************/
+route.post('/admin-pass', authController.isAdmin, adminController.password);
 /*********************************************************************************** */
 route.get('/login', adminController.getAdminLogin);
 route.post('/login', adminController.postAdminLogin);

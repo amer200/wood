@@ -1,0 +1,57 @@
+<div class="col-12 d-none all-forms" id="social">
+    <div class="row">
+        <div class="col-6" style="margin-bottom: 10px;">
+            <% if(social){ %>
+                <form action="/admin/social" method="post">
+                    <h3>soical media links</h3>
+                    <div class="mb-3">
+                        <label for="face">facebook</label>
+                        <input type="text" name="face" class="form-control" value="<%=social.facebook%>">
+                    </div>
+                    <div class="mb-3">
+                        <label for="face">twitter</label>
+                        <input type="text" name="twitter" class="form-control" value="<%=social.twitter%>">
+                    </div>
+                    <div class="mb-3">
+                        <label for="face">instagram</label>
+                        <input type="text" name="insta" class="form-control" value="<%=social.insta%>">
+                    </div>
+                    <div class="mb-3">
+                        <label for="face">youtube</label>
+                        <input type="text" name="youtube" class="form-control" value="<%=social.youtube%>">
+                    </div>
+                    <div class="mb-3">
+                        <label for="face">snapchat</label>
+                        <input type="text" name="snap" class="form-control" value="<%=social.snapchat%>">
+                    </div>
+                    <button class="btn btn-dark" type="submit">submit</button>
+                </form>
+                <%}else{%>
+                    <form action="/admin/social" method="post">
+                        <h3>soical media links</h3>
+                        <div class="mb-3">
+                            <label for="face">facebook</label>
+                            <input type="text" name="face" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="face">twitter</label>
+                            <input type="text" name="twitter" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="face">instagram</label>
+                            <input type="text" name="insta" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="face">youtube</label>
+                            <input type="text" name="youtube" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="face">snapchat</label>
+                            <input type="text" name="snap" class="form-control">
+                        </div>
+                        <button class="btn btn-dark" type="submit">submit</button>
+                    </form>
+                    <%}%>
+        </div>
+    </div>
+</div>

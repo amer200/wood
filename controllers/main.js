@@ -6,6 +6,7 @@ const Projectcateg = require('../models/projectcateg');
 const Parten = require('../models/parten');
 const Why = require('../models/why-us');
 const Meta = require('../models/meta');
+const Social = require('../models/social');
 /***************************************** */
 const nodemailer = require("nodemailer");
 const transporter = nodemailer.createTransport({
@@ -38,6 +39,8 @@ exports.getMain = async (req, res) => {
     const parten = await Parten.find();
     const why = await Why.findOne();
     const meta = await Meta.findOne();
+    const social = await Social.findOne();
+    console.log(social)
     let lang = 'ar'
     if (req.session.lang) {
         lang = req.session.lang;
@@ -50,19 +53,23 @@ exports.getMain = async (req, res) => {
         categs: projectcateg,
         partens: parten,
         why: why,
-        meta: meta
+        meta: meta,
+        social: social
     });
 }
 exports.getAbout = async (req, res) => {
     const about = await About.findOne();
     const meta = await Meta.findOne();
+    const social = await Social.findOne();
+
     let lang = 'ar'
     if (req.session.lang) {
         lang = req.session.lang;
     }
     res.render(`main-${lang}/about`, {
         about: about,
-        meta: meta
+        meta: meta,
+        social: social
     })
 }
 exports.getServ = async (req, res) => {
@@ -113,7 +120,7 @@ exports.getContact = async (req, res) => {
     if (req.session.lang) {
         lang = req.session.lang;
     }
-    res.render(`main-${lang}/contact`,{
+    res.render(`main-${lang}/contact`, {
         meta: meta
     })
 }

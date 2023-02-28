@@ -7,6 +7,7 @@ const Parten = require('../models/parten');
 const Why = require('../models/why-us');
 const Meta = require('../models/meta');
 const fs = require('fs');
+const Social = require('../models/social');
 exports.getMain = async (req, res) => {
     const slides = await Slider.find();
     const about = await About.findOne();
@@ -16,6 +17,7 @@ exports.getMain = async (req, res) => {
     const parten = await Parten.find();
     const why = await Why.findOne();
     const meta = await Meta.findOne();
+    const social = await Social.findOne();
     res.render('admin/index', {
         slides: slides,
         about: about,
@@ -24,7 +26,8 @@ exports.getMain = async (req, res) => {
         categs: projectcateg,
         parten: parten,
         why: why,
-        meta: meta
+        meta: meta,
+        social: social
     });
 }
 /* meta */
@@ -350,4 +353,44 @@ exports.postAdminLogin = (req, res) => {
 exports.adminLogOut = (req, res) => {
     req.session.destroy();
     res.redirect('/')
+}
+/*******Social *******/
+exports.postSocial = (req, res) => {
+    const facebook = req.body.face;
+    const insta = req.body.insta;
+    const twitter = req.body.twitter;
+    const youtube = req.body.youtube;
+    const snapchat = req.body.snap;
+    social.findOne()
+        .then(s => {
+            if (s) {
+                s.facebook = facebook;
+                s.insta = insta;
+                s.youtube = youtube;
+                s.twitter = twitter;
+                s.snapchat = snapchat;
+                return s.save();
+            } else {
+                const newSocial = new social({
+                    facebook: facebook,
+                    insta: insta,
+                    youtube: youtube,
+                    twitter: twitter,
+                    snapchat: snapchat
+                })
+                return newSocial.save();
+            }
+        })
+        .then(s => {
+            res.redirect('/admin')
+        })
+        .catch(err => {
+            console.log(err)
+        })
+}
+exports.password = async (req, res) => {
+    const pass = req.body.pass;
+    process.env.PASS = pass
+    await req.session.destroy();
+    res.redirect('/admin')
 }
