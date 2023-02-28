@@ -17,7 +17,10 @@ exports.getMain = async (req, res) => {
     const parten = await Parten.find();
     const why = await Why.findOne();
     const meta = await Meta.findOne();
-    const social = await Social.findOne();
+    let social = await Social.findOne();
+    if (!social) {
+        social = false;
+    }
     res.render('admin/index', {
         slides: slides,
         about: about,
