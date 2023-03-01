@@ -23,19 +23,21 @@
                         <small class="fa fa-phone-alt text-primary me-2"></small>
                         <small>055 833 9966</small>
                     </div>
-                    <div class="h-100 d-inline-flex align-items-center">
-                        <a class="btn btn-sm-square text-primary me-0" href="<%=social.facebook%>"><i
-                                class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-sm-square text-primary me-0" href="<%=social.twitter%>"><i
-                                class="fab fa-twitter"></i></a>
-                        <a class="btn btn-sm-square text-primary me-0" href="<%=social.youetube%>"><i
-                                class="fab fa-youtube"></i></a>
-                        <a class="btn btn-sm-square text-primary me-0" href="<%=social.insta%>"><i
-                                class="fab fa-instagram"></i></a>
-                        <a class="btn btn-sm-square text-primary me-0" href="<%=social.snapchat%>"> <i
-                                class="fab fa-snapchat"></i>
-                        </a>
-                    </div>
+                    <%if(social){%>
+                        <div class="h-100 d-inline-flex align-items-center">
+                            <a class="btn btn-sm-square text-primary me-0" href="<%=social.facebook%>"><i
+                                    class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-sm-square text-primary me-0" href="<%=social.twitter%>"><i
+                                    class="fab fa-twitter"></i></a>
+                            <a class="btn btn-sm-square text-primary me-0" href="<%=social.youetube%>"><i
+                                    class="fab fa-youtube"></i></a>
+                            <a class="btn btn-sm-square text-primary me-0" href="<%=social.insta%>"><i
+                                    class="fab fa-instagram"></i></a>
+                            <a class="btn btn-sm-square text-primary me-0" href="<%=social.snapchat%>"> <i
+                                    class="fab fa-snapchat"></i>
+                            </a>
+                        </div>
+                        <%}%>
                 </div>
             </div>
         </div>

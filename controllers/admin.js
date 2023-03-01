@@ -364,7 +364,7 @@ exports.postSocial = (req, res) => {
     const twitter = req.body.twitter;
     const youtube = req.body.youtube;
     const snapchat = req.body.snap;
-    social.findOne()
+    Social.findOne()
         .then(s => {
             if (s) {
                 s.facebook = facebook;
@@ -374,7 +374,7 @@ exports.postSocial = (req, res) => {
                 s.snapchat = snapchat;
                 return s.save();
             } else {
-                const newSocial = new social({
+                const newSocial = new Social({
                     facebook: facebook,
                     insta: insta,
                     youtube: youtube,
