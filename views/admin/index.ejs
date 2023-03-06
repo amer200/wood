@@ -33,45 +33,33 @@
                                         <%- include('includes/parten') %>
                                             <%- include('includes/why-us') %>
                                                 <%- include('includes/social') %>
-                                                    <div class="col-12  all-forms">
-                                                        <div class="row">
-                                                            <div class="col-6" style="margin-bottom: 10px;">
-                                                                <form action="/admin/meta" method="post">
-                                                                    <h4>meta Tags</h4>
-                                                                    <div class="mb-3">
-                                                                        <label for="txt">meta tag in English</label>
-                                                                        <textarea name="en" class="form-control"
-                                                                            cols="30" rows="6"><%if(meta){%>
+                                                    <%- include('includes/password') -%>
+                                                        <div class="col-12  all-forms">
+                                                            <div class="row">
+                                                                <div class="col-6" style="margin-bottom: 10px;">
+                                                                    <form action="/admin/meta" method="post">
+                                                                        <h4>meta Tags</h4>
+                                                                        <div class="mb-3">
+                                                                            <label for="txt">meta tag in English</label>
+                                                                            <textarea name="en" class="form-control"
+                                                                                cols="30" rows="6"><%if(meta){%>
                                                                             <%=meta.en%>
                                                                         <%}%>
                                                                         </textarea>
-                                                                    </div>
-                                                                    <div class="mb-3">
-                                                                        <label for="txt">meta tag in Arabic</label>
-                                                                        <textarea name="ar" class="form-control"
-                                                                            cols="30" rows="6"><%if(meta){%>
+                                                                        </div>
+                                                                        <div class="mb-3">
+                                                                            <label for="txt">meta tag in Arabic</label>
+                                                                            <textarea name="ar" class="form-control"
+                                                                                cols="30" rows="6"><%if(meta){%>
                                                                             <%=meta.ar%>
                                                                         <%}%></textarea>
-                                                                    </div>
-                                                                    <button type="submit"
-                                                                        class="btn btn-dark">submit</button>
-                                                                </form>
-                                                            </div>
-                                                            <div class="col-4" style="margin-bottom: 10px;">
-                                                                <h3>password</h3>
-                                                                <form action="/admin/admin-pass" method="post">
-                                                                    <div class="mb-3">
-                                                                        <label for="pass"
-                                                                            class="form-label">password</label>
-                                                                        <input type="password" class="form-control"
-                                                                            name="pass" required>
+                                                                        </div>
                                                                         <button type="submit"
                                                                             class="btn btn-dark">submit</button>
-                                                                    </div>
-                                                                </form>
+                                                                    </form>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
                     </div>
                 </div>
         </div>

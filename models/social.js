@@ -5,7 +5,8 @@ const socialSchema = mongoose.Schema({
     insta: String,
     youtube: String,
     twitter: String,
-    snapchat: String
+    snapchat: String,
+    whats: String
 })
 
 module.exports = mongoose.model('Social', socialSchema);
