@@ -76,6 +76,8 @@ exports.getServ = async (req, res) => {
     const servs = await Serv.find();
     const parten = await Parten.find();
     const meta = await Meta.findOne();
+    const social = await Social.findOne();
+
     let lang = 'ar'
     if (req.session.lang) {
         lang = req.session.lang;
@@ -83,13 +85,16 @@ exports.getServ = async (req, res) => {
     res.render(`main-${lang}/service`, {
         servs: servs,
         partens: parten,
-        meta: meta
+        meta: meta,
+        social: social
     })
 }
 exports.getProjects = async (req, res) => {
     const projects = await Project.find().populate('categ');
     const projectcateg = await Projectcateg.find();
     const meta = await Meta.findOne();
+    const social = await Social.findOne();
+
     let lang = 'ar'
     if (req.session.lang) {
         lang = req.session.lang;
@@ -97,13 +102,16 @@ exports.getProjects = async (req, res) => {
     res.render(`main-${lang}/project`, {
         projects: projects,
         categs: projectcateg,
-        meta: meta
+        meta: meta,
+        social: social
     })
 }
 exports.getProject = async (req, res) => {
     const id = req.params.id;
     const project = await Project.findById(id);
     const meta = await Meta.findOne();
+    const social = await Social.findOne();
+
     let lang = 'ar'
     if (req.session.lang) {
         lang = req.session.lang;
@@ -111,17 +119,21 @@ exports.getProject = async (req, res) => {
     console.log(project)
     res.render(`main-${lang}/single-project`, {
         p: project,
-        meta: meta
+        meta: meta,
+        social: social
     })
 }
 exports.getContact = async (req, res) => {
     const meta = await Meta.findOne();
+    const social = await Social.findOne();
+
     let lang = 'ar';
     if (req.session.lang) {
         lang = req.session.lang;
     }
     res.render(`main-${lang}/contact`, {
-        meta: meta
+        meta: meta,
+        social: social
     })
 }
 exports.sendMail = (req, res) => {
